@@ -140,6 +140,7 @@
             <div class="call-to-action">
                 <h2>人杰业丰官方微信服务号!</h2>
                 <img src="img/qrcode.jpg" />
+                <p id="detectQrcodeNote">请在屏幕前方约30厘米处扫描二维码</p>
             </div>
         </div>
     </aside>
@@ -177,6 +178,24 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
+
+    <script type="text/javascript">
+        function isWeiXin(){
+            var ua = navigator.userAgent.toLowerCase();
+
+            if(ua.match(/MicroMessenger/i) == "micromessenger") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        $(function() {
+            if(isWeiXin()){
+                $('#detectQrcodeNote').text('长按上方图片，选择“识别图中二维码”');
+            }
+        });
+    </script>
 
 </body>
 
