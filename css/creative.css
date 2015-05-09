@@ -64,6 +64,10 @@ p {
     color: rgba(255,255,255,.7);
 }
 
+.text-viersteine-green {
+    color: #005D4D;
+}
+
 section {
     padding: 100px 0;
 }
