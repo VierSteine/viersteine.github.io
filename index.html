@@ -90,7 +90,7 @@
                     <h2 class="section-heading">人杰业丰，您的专业HR助手!</h2>
                     <hr class="light">
                     <p class="text-faded">成为创业团队的外部HR合作伙伴，为初始团队提供包括人员规划、招聘实施、薪酬设定等一系列人力资源服务，帮助初创团队快速在竞争环境中获得市场认可。</p>
-                    <p class="text-faded">让有意向创业的年轻人，寻找优秀有实力、与自身发展方向契合的初创团队，并长期帮助他们在团队中获得自我认可和成长；</p>
+                    <p class="text-faded">让有意向创业的年轻人，寻找优秀有实力、与自身发展方向契合的初创团队，并长期帮助他们在团队中获得自我认可和成长。</p>
                     <a href="#contact" class="btn btn-default btn-xl">联系我们!</a>
                 </div>
             </div>
@@ -142,10 +142,11 @@
 
     <aside id="contact" class="bg-dark">
         <div class="container text-center">
-            <div class="call-to-action">
+            <div>
                 <h2>人杰业丰官方微信服务号!</h2>
-                <img src="img/qrcode.jpg" alt="qrcode" />
-                <p id="detectQrcodeNote">请在屏幕前方约30厘米处扫描二维码</p>
+                <p><img src="img/qrcode.jpg" class="img-rounded" alt="qrcode" /></p>
+                <p id="detectQrcodeNote">请在屏幕前方约30厘米处扫描二维码<br>
+                或者搜索微信号：VierSteine</p>
             </div>
         </div>
     </aside>
@@ -197,7 +198,7 @@
 
         $(function() {
             if(isWeiXin()){
-                $('#detectQrcodeNote').text('长按上方图片，选择“识别图中二维码”');
+                $('#detectQrcodeNote').html('长按上方图片，选择“识别图中二维码”<br>或者搜索微信号：VierSteine');
             }
         });
 
