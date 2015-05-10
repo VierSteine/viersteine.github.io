@@ -1,17 +1,37 @@
 ---
 layout: default
 ---
-<div class="post">
+<section class="bg-primary" style="padding-bottom: 30px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 text-center">
+        <h2 class="section-heading">{{ page.title }}</h2>
+        <hr class="light">
+        <p class="text-faded">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-  </header>
+<article class="post">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-left post-content">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+</article>
 
-  <article class="post-content">
-    {{ content }}
-  </article>
-
-</div>
+<aside id="contact" class="bg-dark">
+  <div class="container text-center">
+    <div>
+      <h2>人杰业丰官方微信服务号!</h2>
+      <p><img src="{{ '/img/wechat/qrcode.jpg' | prepend: site.baseurl }}" class="img-rounded" alt="qrcode" /></p>
+      <p id="detectQrcodeNote">请在屏幕前方约30厘米处扫描二维码<br>
+        或者搜索微信号：VierSteine</p>
+    </div>
+  </div>
+</aside>
 
 {% include app_js.html %}
