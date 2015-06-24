@@ -12,8 +12,9 @@ title:  "历史文章"
 </header>
 <article class="container">
     {% assign reversed_articles = site.data.wechat_articles | sort | reverse %}
-    {% for day_list_hash in reversed_articles %}
-    {% assign day_list = day_list_hash %}
+    {{ site.data.wechat_articles  }}
+    {% for day_list_hash in site.data.wechat_articles reversed %}
+    {% assign day_list = day_list_hash[1] %}
     <div class="row">
         <div class="col-xs-12">
             <h3><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> {{ day_list.date }}</h3>
