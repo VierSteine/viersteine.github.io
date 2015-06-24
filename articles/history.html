@@ -11,54 +11,31 @@ title:  "历史文章"
     </div>
 </header>
 <article class="container">
-    <!-- Template for articles within a certain day: --
+    {% for day_list_hash in site.data.wechat_articles reversed %}
+    {% assign day_list = day_list_hash[1] %}
     <div class="row">
         <div class="col-xs-12">
-            <h3><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> MM月dd日</h3>
+            <h3><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> {{ day_list.date }}</h3>
             <ul class="list-group">
+                {% for article in day_list.list %}
                 <li class="list-group-item">
+                    {% if article["转发"] %}
                     <span class="label label-primary">转发</span>
+                    {% endif %}
+                    {% if article["原创"] %}
                     <span class="label label-danger">原创</span>
+                    {% endif %}
+                    {% if article["招聘"] %}
+                    <span class="label label-info">招聘</span>
+                    {% endif %}
+                    {% if article["推送"] %}
                     <span class="label label-success">推送</span>
-                    <a href="#" target="_blank">XXXYYYZZZ</a>
+                    {% endif %}
+                    <a href="{{ article.link }}" target="_blank">{{ article.title }}</a>
                 </li>
+                {% endfor %}
             </ul>
         </div>
     </div>
-    -->
-    <div class="row">
-        <div class="col-xs-12">
-            <h3><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 06月22日</h3>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <span class="label label-primary">转发</span>
-                    <a href="http://mp.weixin.qq.com/s?__biz=MzAwNjUyNDU4MA==&mid=207411775&idx=1&sn=8b9fddf289eeadcccb5480db1999b4ca#rd"
-                       target="_blank">全民创业热潮背后暗藏着三大危险</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <h3><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 06月21日</h3>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <span class="label label-success">推送</span>
-                    <a href="http://mp.weixin.qq.com/s?__biz=MzAwNjUyNDU4MA==&mid=207380912&idx=1&sn=5b8f73b25568ab72a21dbe8d1827fb94#rd" target="_blank">教皇提醒领导者：15种通病不要犯</a>
-                </li>
-                <li class="list-group-item">
-                    <span class="label label-success">推送</span>
-                    <a href="http://mp.weixin.qq.com/s?__biz=MzAwNjUyNDU4MA==&mid=207380912&idx=2&sn=9e47f95fcf658d1c537f6161e510cfe3#rd" target="_blank">老板和领袖的区别：坚硬的Boss vs. 柔软的Leader</a>
-                </li>
-                <li class="list-group-item">
-                    <span class="label label-success">推送</span>
-                    <a href="http://mp.weixin.qq.com/s?__biz=MzAwNjUyNDU4MA==&mid=207380912&idx=3&sn=756eb33d1eaafbbe73c9ce83f8fdf81f#rd" target="_blank">总市值3862亿的创始人们在各阶段是怎么选女友的？</a>
-                </li>
-                <li class="list-group-item">
-                    <span class="label label-success">推送</span>
-                    <a href="http://mp.weixin.qq.com/s?__biz=MzAwNjUyNDU4MA==&mid=207380912&idx=4&sn=42f9b23e2a730a94cdf0d20501db6068#rd" target="_blank">这部父女情深的短片，每看一次都流泪！献给父亲节！</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+    {% endfor %}
 </article>
