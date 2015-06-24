@@ -11,7 +11,7 @@ title:  "历史文章"
     </div>
 </header>
 <article class="container">
-    {% for day_list_hash in site.data.wechat_articles reversed %}
+    {% for day_list_hash in site.data.wechat_articles sort %}
     {% assign day_list = day_list_hash[1] %}
     <div class="row">
         <div class="col-xs-12">
