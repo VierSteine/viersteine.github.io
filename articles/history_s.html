@@ -1,0 +1,44 @@
+---
+layout: default_simple
+title:  "人杰业丰 Viersteine"
+---
+<header class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>微信公众号历史文章</h1>
+        </div>
+    </div>
+</header>
+<article class="container">
+    {% assign reversed_articles = site.data.wechat_articles | sort | reverse %}
+    {% for day_list in reversed_articles %}
+        {% unless day_list.date %}
+        {% continue %}
+        {% endunless %}
+    <div class="row">
+        <div class="col-xs-12">
+            <h3><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> {{ day_list.date }}</h3>
+            <ul class="list-group">
+                {% for article in day_list.list %}
+                    {% if article["招聘"] %}
+                    {% continue %}
+                    {% endif %}
+                <li class="list-group-item">
+                    {% if article["原创"] %}
+                    <span class="label label-danger">原创</span>
+                    {% endif %}
+                    <a href="{{ article.link }}" target="_blank">{{ article.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endfor %}
+</article>
+<footer class="container text-center">
+    <div>
+        <h3>人杰业丰官方微信服务号</h3>
+        <p><img src="{{ '/img/wechat/qrcode.jpg' | prepend: site.baseurl }}" class="img-rounded" alt="qrcode" /></p>
+        <p id="detectQrcodeNote">搜索微信公众号：VierSteine</p>
+    </div>
+</footer>
